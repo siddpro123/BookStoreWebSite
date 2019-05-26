@@ -1,0 +1,30 @@
+package com.bookstore.controller.frontend.book;
+
+import com.bookstore.controller.BaseServlet;
+import com.bookstore.service.BookServices;
+
+import java.io.IOException;
+import javax.servlet.Servlet;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/view_book")
+public class ViewBooksServlet extends BaseServlet implements Servlet {
+	private static final long serialVersionUID = 1L;
+
+
+    public ViewBooksServlet() {
+       
+    }
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		BookServices bookServices = new BookServices(request, response);
+		bookServices.viewBookDetails();
+	}
+
+
+
+}
